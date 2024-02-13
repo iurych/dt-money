@@ -6,8 +6,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: sans-serif;
     box-sizing: border-box;
-
-    
   }
 
   :focus {
