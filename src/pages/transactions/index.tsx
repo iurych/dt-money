@@ -1,6 +1,7 @@
 import React from "react"
 import { Header } from "../../components/Header"
 import { Summary } from "../../components/Summary"
+import { SearchForm } from "./components/SearchForm"
 import { PriceHighlight, TransactionContainer, TransactionTable } from "./style"
 
 export const Transactions = () => { 
@@ -9,7 +10,7 @@ export const Transactions = () => {
       <Header />
       <Summary />
       <TransactionContainer>
-        
+        <SearchForm />
         <TransactionTable>
           <tbody>
             <tr>
