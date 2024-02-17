@@ -1,4 +1,4 @@
-# Projeto de controle financeiro pessaol !
+# Projeto de controle financeiro pessoal !
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
