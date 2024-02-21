@@ -1,0 +1,12 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Academia",
+      "type": "outcome",
+      "category": "Fitness",
+      "price": 80,
+      "createdAt": "2024-02-21T21:42:41.706Z"
+    }
+  ]
+}
