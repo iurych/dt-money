@@ -4,6 +4,8 @@ import { NewModalTransaction } from '../NewModalTransaction';
 import { HeaderContainer, HeaderContent, NewTransactionButton } from './style';
 
 export const Header = () => {
+ 
+
   return (
     <HeaderContainer>
       <HeaderContent>

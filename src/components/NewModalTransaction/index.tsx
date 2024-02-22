@@ -3,6 +3,7 @@ import { ArrowCircleUp, X } from "phosphor-react"
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from "./style"
 
 export const NewModalTransaction = () => {
+
   return (
     <Dialog.Portal>
       <Overlay />
