@@ -5,12 +5,11 @@ import { TransactionsContext } from "../../contexts/TransactionsContext"
 import { SearchForm } from "./components/SearchForm"
 import { PriceHighlight, TransactionContainer, TransactionTable } from "./style"
 
-
-
 export const Transactions = () => {
 
   const { transactions } = useContext(TransactionsContext)
 
+ 
   return (
     <React.Fragment>
       <Header />
