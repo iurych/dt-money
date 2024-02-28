@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { Header } from "../../components/Header"
 import { Summary } from "../../components/Summary"
 import { TransactionsContext } from "../../contexts/TransactionsContext"
+import { formatCurrency, formatDate } from "../../utils/formatter"
 import { SearchForm } from "./components/SearchForm"
 import { PriceHighlight, TransactionContainer, TransactionTable } from "./style"
 
@@ -25,11 +26,12 @@ export const Transactions = () => {
                   <td width={"50%"}  >{transaction.description}</td>
                   <td>
                     <PriceHighlight variant={transaction.type} >
-                      R$ {transaction.price.toFixed(2)}
+                      {transaction.type === "outcome" && "- "}
+                      {formatCurrency.format(transaction.price)}
                     </PriceHighlight>
                   </td>
                   <td>{transaction.category}</td>
-                  <td>{transaction.createdAt} </td>
+                  <td>{formatDate.format(new Date(transaction.createdAt))} </td>
                 </tr>
               )
             })}
