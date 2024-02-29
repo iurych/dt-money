@@ -45,7 +45,7 @@ export const Content = styled(Dialog.Content)`
       }
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       height: 50px;
       border: 0;
       background-color: ${({theme}) => theme['green-500']};
@@ -55,9 +55,10 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       margin-top: 1.25rem;
       cursor: pointer;
+      transition: .2s;
    
       &:disabled {
-        opacity: 0.6;
+        opacity: .6;
         cursor: not-allowed;
       }
 

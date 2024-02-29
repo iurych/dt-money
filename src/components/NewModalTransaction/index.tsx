@@ -10,7 +10,7 @@ export const NewModalTransaction = () => {
     description: z.string(),
     price: z.number(),
     category: z.string(),
-    type: z.enum(['income', 'outcome']),
+    type: z.enum(['income', 'outcome', '']),
   });
   type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
@@ -18,18 +18,18 @@ export const NewModalTransaction = () => {
     register,
     control,
     handleSubmit,
-    formState: { isSubmitting }  
+    formState: { isSubmitting, errors }  
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
-      type: 'income'
+      type: ''
     }
   })
 
   const handleCreateNewTransaction = async (data: NewTransactionFormInputs) => {
-    await new Promise (resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 2000))
     
-    console.log(data)
+    console.log(data, errors)
   }
 
   return (
@@ -50,7 +50,8 @@ export const NewModalTransaction = () => {
           <input 
             type="number" 
             placeholder="Preço"
-            {...register('price')} 
+            {...register('price', {valueAsNumber: true})}
+           
             required
           />
           <input 
@@ -63,7 +64,6 @@ export const NewModalTransaction = () => {
             name='type'
             control={control}
             render={({field})=> {
-              console.log(field)
               return (
                 <TransactionType
                  onValueChange={field.onChange} 
@@ -81,8 +81,7 @@ export const NewModalTransaction = () => {
               )
             }}
           />
-          
-          <button type="submit" disabled={isSubmitting}>
+          <button type='submit' disabled={isSubmitting} >
             Cadastrar
           </button>
         </form>
