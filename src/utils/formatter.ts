@@ -1,7 +1,7 @@
 export const formatDate = new Intl.DateTimeFormat('pt-BR', {
   day: '2-digit',
-  month: 'long',
-  year: 'numeric',
+  month: 'short',
+  year: '2-digit',
 })
 
 export const formatCurrency = new Intl.NumberFormat('pt-BR', {

@@ -31,6 +31,30 @@
       "category": "Alimentação",
       "price": 200,
       "createdAt": "2024-02-21T21:42:41.706Z"
+    },
+    {
+      "description": "barbearia",
+      "category": "higiene",
+      "price": 123,
+      "type": "outcome",
+      "createdAt": "2024-03-01T13:03:58.739Z",
+      "id": 5
+    },
+    {
+      "category": "trabalho",
+      "description": "Serviços",
+      "price": 150,
+      "type": "income",
+      "createdAt": "2024-03-01T14:00:24.195Z",
+      "id": 6
+    },
+    {
+      "category": "Trabalho",
+      "description": "Explicador",
+      "price": 200,
+      "type": "income",
+      "createdAt": "2024-03-01T14:01:40.685Z",
+      "id": 7
     }
   ]
 }

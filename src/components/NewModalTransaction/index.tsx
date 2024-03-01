@@ -1,23 +1,28 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as Dialog from "@radix-ui/react-dialog"
 import { ArrowCircleUp, X } from "phosphor-react"
+import { useContext } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { z } from "zod"
+import { TransactionsContext } from "../../contexts/TransactionsContext"
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from "./style"
 
 export const NewModalTransaction = () => {
   const newTransactionFormSchema = z.object({
-    description: z.string(),
-    price: z.number(),
-    category: z.string(),
+    description: z.string().min(1, "this field is required"),
+    price: z.number().min(1, "this field is required"),
+    category: z.string().min(1, "this field is required"),
     type: z.enum(['income', 'outcome', '']),
-  });
+  }).required();
   type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
+
+  const { createTransaction } = useContext(TransactionsContext)
 
   const { 
     register,
     control,
     handleSubmit,
+    reset,
     formState: { isSubmitting, errors }  
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
@@ -27,9 +32,17 @@ export const NewModalTransaction = () => {
   })
 
   const handleCreateNewTransaction = async (data: NewTransactionFormInputs) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
     
-    console.log(data, errors)
+    const { description, category, price, type } = data;
+
+    await createTransaction({
+      description,
+      category,
+      price,
+      type,
+   })
+
+   reset()
   }
 
   return (
@@ -45,21 +58,22 @@ export const NewModalTransaction = () => {
             type="text" 
             placeholder="Descrição" 
             {...register('description')}
-            required
           />
+          {<span>{errors.description?.message}</span>}
           <input 
             type="number" 
             placeholder="Preço"
             {...register('price', {valueAsNumber: true})}
-           
-            required
+            
           />
+          {<span>{errors.price?.message}</span>}
+
           <input 
             type="text" 
             placeholder="Categoria"
             {...register('category')}
-            required
           />
+          {<span>{errors.category?.message}</span>}
           <Controller 
             name='type'
             control={control}

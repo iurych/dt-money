@@ -31,7 +31,7 @@ export const Transactions = () => {
                     </PriceHighlight>
                   </td>
                   <td>{transaction.category}</td>
-                  <td>{formatDate.format(new Date(transaction.createdAt))} </td>
+                  <td>{formatDate.format(new Date(transaction.createdAt))}</td>
                 </tr>
               )
             })}

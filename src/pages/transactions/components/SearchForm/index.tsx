@@ -29,7 +29,7 @@ export const SearchForm = () => {
     <SearchFormContainer onSubmit={handleSubmit(handleOnSubmit)} >
       <input 
         type="text" 
-        placeholder="Search for a transaction..."
+        placeholder="Search for transactions..."
         {...register("query")}
       />
       <button 

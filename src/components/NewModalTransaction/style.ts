@@ -43,6 +43,9 @@ export const Content = styled(Dialog.Content)`
       &::placeholder {
         color: ${({theme}) => theme['gray-500']};
       }
+      &:first-child {
+        color: white;
+      }
     }
 
     button[type='submit'] {
